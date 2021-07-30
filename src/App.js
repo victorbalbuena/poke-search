@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import InfoPoke from './components/InfoPoke';
 
 function App() {
+
+  const [ pokemon, setPokemon ] = useState(['Pikachu']);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h2>Pokemon Shearch</h2>
+      <hr/>
+      <ol>
+        {
+          pokemon.map((category, i) => {
+            <InfoPoke
+              key={ category }
+              category={ category }
+            />
+          })
+        }
+      </ol>
     </div>
   );
 }
